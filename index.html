@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GAUNTLET — Reality Rewritten</title>
+    <link rel="icon" type="image/png" href="assets/gem.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600&family=IM+Fell+English+SC&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <audio id="bgm" loop preload="auto">
+        <source src="assets/audio/rlx.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Particles -->
+    <div id="particles"></div>
+
+    <!-- Audio Toggle -->
+    <button id="audio-toggle" onclick="toggleAudio()" title="Toggle Background Music">
+        <svg id="audio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="width:24px; height:24px;">
+            <path id="speaker-path" d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <path id="volume-path" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+    </button>
+
+    <!-- Black overlay -->
+    <div id="black-overlay">
+        <div class="overlay-rune">∞ GAUNTLET ∞</div>
+    </div>
+
+    <!-- Video container -->
+    <div id="video-container">
+        <video id="main-video" playsinline></video>
+    </div>
+
+    <!-- Level title screen -->
+    <div id="level-title-screen">
+        <div id="level-num"></div>
+        <div id="level-divider"></div>
+        <div id="level-name"></div>
+    </div>
+
+    <!-- End screen -->
+    <div id="end-screen">
+        <div id="end-gauntlet-title">GAUNTLET COMPLETE</div>
+        <div id="end-tagline">Reality has been rewritten. The universe bows.</div>
+        <div id="end-flag">GAUNTLET{reality_rewritten}</div>
+        <div style="font-size:.7rem;letter-spacing:.3em;color:#4a2e00;margin-top:1rem;">YOU HAVE PROVEN WORTHY</div>
+    </div>
+
+    <!-- Victory screen (moving on) -->
+    <div id="victory-screen">
+        <div id="victory-title"></div>
+        <div id="victory-sub"
+            style="font-family:'IM Fell English SC',serif;font-size:1rem;color:#8b6914;letter-spacing:.2em;"></div>
+    </div>
+
+    <!-- ═══════════════════════════════ MAIN GAME ═══════════════════════════════ -->
+    <div id="game-wrapper">
+
+        <div id="game-header">
+            <div id="header-title">THE INFINITY GAUNTLET</div>
+            <div id="header-sub">Rewrite Reality · Claim the Stones · Prove Your Worth</div>
+            <div id="stone-progress">
+                <div class="stone locked" data-stone="space" title="Space Stone"></div>
+                <div class="stone locked" data-stone="mind" title="Mind Stone"></div>
+                <div class="stone locked" data-stone="reality" title="Reality Stone"></div>
+                <div class="stone locked" data-stone="power" title="Power Stone"></div>
+            </div>
+        </div>
+
+        <!-- ── STAGE 1: Illusion of Sight ── -->
+        <!-- Reality begins where visibility ends -->
+        <div class="stage" id="stage1">
+            <div class="thanos-word">REALITY IS OFTEN DISAPPOINTING</div>
+            <div class="clue-text"></div>
+
+            <div style="display:none; flex-direction: column; align-items: center;">
+                <button id="btn-stage1" class="gauntlet-btn" disabled onclick="solveStage1()"><span>Access Reality
+                        Core</span></button>
+            </div>
+        </div>
+
+        <!-- ── STAGE 2: Illusion of Identity ── -->
+        <!-- Only the worthy may hold the role of Thanos -->
+        <div class="stage" id="stage2">
+            <div class="thanos-word">I AM INEVITABLE</div>
+            <div class="clue-text"></div>
+
+            <div style="display:none; flex-direction: column; align-items: center;">
+                <button class="gauntlet-btn" disabled onclick="loginStage2()"><span>Generate Token</span></button>
+                <div id="token-display"></div>
+                <button class="gauntlet-btn btn-danger" disabled onclick="checkAdmin()"><span>Claim Admin
+                        Access</span></button>
+                <div id="admin-result" class="result-box"></div>
+                <div id="admin-panel">
+                    <div style="color:#c9a84c;margin-bottom:.5rem;font-size:.8rem;letter-spacing:.2em;">ADMIN PANEL
+                        UNLOCKED</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── STAGE 3: Illusion of Authority ── -->
+        <div class="stage" id="stage3">
+            <div class="thanos-word">DESTINY ARRIVES ALL THE SAME</div>
+            <div class="clue-text"></div>
+
+            <div style="display:none; flex-direction: column; align-items: center;">
+                <button class="gauntlet-btn" disabled onclick="callRealityAPI()"><span>Trigger Reality
+                        Shift</span></button>
+                <div id="api-result" class="result-box"></div>
+            </div>
+        </div>
+
+        <!-- ── STAGE 4: Illusion of Truth ── -->
+        <div class="stage" id="stage4">
+            <div class="thanos-word">FINE. I'LL DO IT MYSELF.</div>
+            <div class="clue-text"></div>
+
+            <div id="final-flag" hidden style="display:none; flex-direction: column; align-items: center;">
+                <button class="gauntlet-btn" disabled id="final-victory-btn" onclick="triggerFinalVictory()"><span>⬡
+                        Snap the
+                        Gauntlet ⬡</span></button>
+            </div>
+        </div>
+
+    </div>
+    <!-- /game-wrapper -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>
