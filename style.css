@@ -88,7 +88,7 @@ body.video-playing #audio-toggle {
     inset: 0;
     background: #000;
     z-index: 9999;
-    transition: opacity 2s ease;
+    transition: opacity 1s ease;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -184,7 +184,7 @@ function showLevelTitle(num, name, callback) {
     setTimeout(() => {
         ls.classList.remove('active');
         if (callback) callback();
-    }, 3500);
+    }, 2500);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -418,9 +418,9 @@ function resumeGame() {
                     header.classList.remove('intro-center');
 
                     startStage1();
-                }, 2000);
+                }, 1000);
 
-            }, 1500);
+            }, 800);
             break;
         case 1:
             overlay.classList.add('hidden');
