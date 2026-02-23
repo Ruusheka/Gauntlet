@@ -153,6 +153,17 @@ function playVideo(src, callback, forcePlay) {
     }, { once: true });
 }
 
+function preloadVideos(urls) {
+    if (!urls) return;
+    urls.forEach(url => {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = url;
+        link.as = 'video';
+        document.head.appendChild(link);
+    });
+}
+
 // ═══════════════════════════════════════════════════════
 // LEVEL TITLE SCREEN
 // ═══════════════════════════════════════════════════════
@@ -230,6 +241,8 @@ function startStage1() {
             typewriterText(
                 "Mortals believe what is visible.They trust the surface.They obey what appears locked.But reality does not answer to appearances.It answers to those who dare to look beneath."
             );
+            // Preload victory 1 and intro 2 while user plays
+            preloadVideos(['assets/videos/vic1.mp4', 'assets/videos/intro2.mp4']);
         });
     });
 }
@@ -258,6 +271,8 @@ function startStage2() {
     typewriterText(
         "Reality bends to those with power.Become more than you are.Names are given.Roles are assigned.Power is inherited.But identity… Identity can be rewritten."
     );
+    // Preload victory 2 and intro 3
+    preloadVideos(['assets/videos/vic2.mp4', 'assets/videos/intro3.mp4']);
 }
 
 function loginStage2() {
@@ -309,6 +324,8 @@ function startStage3() {
     typewriterText(
         "Power without understanding is meaningless.Seek the hidden endpoint.The universe keeps its state.Change the state… and you change destiny"
     );
+    // Preload victory 3 and intro 4
+    preloadVideos(['assets/videos/vic3.mp4', 'assets/videos/intro4.mp4']);
 }
 
 function callRealityAPI() {
@@ -342,6 +359,8 @@ function startStage4() {
     typewriterText(
         "You have altered what you see, and who you are.Now alter what is true.The final stone awaits those who see through the last illusion.Nothing is fixed.Everything is subject to the will.The universe is a canvas.And you are the brush."
     );
+    // Preload final victory
+    preloadVideos(['assets/videos/final_vic4.mp4']);
 }
 
 function triggerFinalVictory() {
