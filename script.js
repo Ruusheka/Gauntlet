@@ -293,7 +293,7 @@ function checkAdmin() {
 function solveStage2() {
     unlockStone(1);
     showStage(0);
-    playVideo('assets/video/vic2.mp4', () => {
+    playVideo('assets/videos/vic2.mp4', () => {
         showLevelTitle(3, 'The Weight of Authority', () => {
             playVideo('assets/video/intro3.mp4', startStage3);
         });
@@ -326,9 +326,9 @@ function callRealityAPI() {
 function solveStage3() {
     unlockStone(2);
     showStage(0);
-    playVideo('assets/video/vic3.mp4', () => {
+    playVideo('assets/videos/vic3.mp4', () => {
         showLevelTitle(4, 'The Illusion of Truth', () => {
-            playVideo('assets/video/intro4.mp4', startStage4);
+            playVideo('assets/videos/intro4.mp4', startStage4);
         });
     });
 }
@@ -346,7 +346,7 @@ function startStage4() {
 
 function triggerFinalVictory() {
     showStage(0);
-    playVideo('assets/video/final_vic4.mp4', () => {
+    playVideo('assets/videos/final_vic4.mp4', () => {
         unlockStone(3);
         // Final end screen with flag — NO gauntlet flag shown in DOM before this
         G.stage = 5; saveState(G);
