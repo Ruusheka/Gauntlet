@@ -355,14 +355,21 @@ function triggerFinalVictory() {
 }
 
 function showEndScreen() {
-    // Typewriter the end screen title then show flag
     const es = document.getElementById('end-screen');
     es.classList.add('active');
-    // Animate flag in
-    const flag = document.getElementById('end-flag');
+
+    // Dynamically create flag element (Obfuscated from initial DOM)
+    // Base64 of GAUNTLET{reality_rewritten} is R0FVTlRMRVR7cmVhbGl0eV9yZXdyaXR0ZW59
+    const flag = document.createElement('div');
+    flag.id = 'end-flag';
+    flag.textContent = atob('R0FVTlRMRVR7cmVhbGl0eV9yZXdyaXR0ZW59');
     flag.style.opacity = '0';
     flag.style.transform = 'scale(.8)';
     flag.style.transition = 'all 1.5s ease 1s';
+
+    // Insert before the "PROVEN WORTHY" text
+    es.insertBefore(flag, es.lastElementChild);
+
     setTimeout(() => {
         flag.style.opacity = '1';
         flag.style.transform = 'scale(1)';
