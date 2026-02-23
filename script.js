@@ -295,7 +295,7 @@ function solveStage2() {
     showStage(0);
     playVideo('assets/videos/vic2.mp4', () => {
         showLevelTitle(3, 'The Weight of Authority', () => {
-            playVideo('assets/video/intro3.mp4', startStage3);
+            playVideo('assets/videos/intro3.mp4', startStage3);
         });
     });
 }
